@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import styled from "styled-components"
 
 import { useForm, ErrorMessage } from "react-hook-form"
-
-import updateAction from "../state/updateAction"
 
 import { GlobalStyle } from "../styles/GlobalStyle"
 

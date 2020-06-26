@@ -160,6 +160,25 @@ const AboutPage = () => {
                   expert in bringing your vision into air or helium filled
                   masterpieces while working within your budget.
                 </p>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <a
+                    style={{ color: "var(--gray)", textDecoration: "none" }}
+                    href="tel:+7517235656"
+                  >
+                    (751) 723-5656
+                  </a>
+                  <a
+                    style={{ color: "var(--gray)", textDecoration: "none" }}
+                    href="mailto:almathereza@gmail.com"
+                  >
+                    almathereza@gmail.com
+                  </a>
+                </div>
               </Content>
             </ContentWrapper>
           </Container>

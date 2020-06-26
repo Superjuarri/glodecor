@@ -67,30 +67,6 @@ const CategoryButton = styled.button`
 
   cursor: pointer;
 `
-const Link = styled.a`
-  position: relative;
-  z-index: 3;
-
-  width: 100%;
-  margin-top: 2rem;
-  padding: 1.75rem;
-
-  background: var(--pink);
-  color: var(--light-biege);
-  font-weight: bold;
-
-  display: flex;
-  justify-content: center;
-
-  border-radius: 0.5em;
-
-  cursor: pointer;
-
-  @media (min-width: ${minWidth}) {
-    width: 12em;
-    padding: 1em 2em;
-  }
-`
 
 const StyledImg = styled(Img)`
   height: 100%;

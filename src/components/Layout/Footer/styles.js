@@ -13,8 +13,22 @@ export const Wrapper = styled.footer`
   }
 `
 
-export const Nav = styled.nav``
+export const Nav = styled.nav`
+  margin: 2rem 0;
 
-export const A = styled.a``
+  a + a {
+    margin-left: 2rem;
+  }
+`
 
-export const Link = styled(GatsbyLink)``
+export const A = styled.a`
+  margin: 1rem 0;
+
+  color: var(--white);
+  text-decoration: none;
+`
+
+export const Link = styled(GatsbyLink)`
+  color: var(--white);
+  text-decoration: none;
+`
