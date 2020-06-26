@@ -1,0 +1,20 @@
+import styled from "styled-components"
+import { Link as GatsbyLink } from "gatsby"
+
+export const Wrapper = styled.footer`
+  margin: 0;
+  padding: 7.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--dark-blue);
+  @media only screen and (min-width: 750px) {
+    padding: 3vh 5%;
+  }
+`
+
+export const Nav = styled.nav``
+
+export const A = styled.a``
+
+export const Link = styled(GatsbyLink)``
