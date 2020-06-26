@@ -6,24 +6,7 @@ const minWidth = "900px"
 const Container = styled.div`
   position: relative;
   display: block;
-`
 
-const Heading = styled.h1`
-  margin-top: 0;
-  color: var(--pink);
-  font-size: 2rem;
-
-  @media (min-width: ${minWidth}) {
-    font-size: 2.5rem;
-  }
-`
-
-const Span = styled.span`
-  font-size: 0.5em;
-  color: var(--black);
-`
-
-const Words = styled.p`
   color: var(--gray);
   font-size: 1rem;
   line-height: 2em;
@@ -34,7 +17,28 @@ const Words = styled.p`
   }
 `
 
-const Content = ({ heading, span, words, link }) => {
+const Heading = styled.h1`
+  margin-top: 0;
+  color: var(--pink);
+  font-size: 2rem;
+
+  /* white-space: nowrap; */
+
+  text-align: left;
+
+  @media (min-width: ${minWidth}) {
+    font-size: 2.5rem;
+  }
+`
+
+const Span = styled.span`
+  font-size: 0.5em;
+  color: var(--black);
+
+  text-align: left;
+`
+
+const Content = ({ heading, span, link, children }) => {
   return (
     <Container>
       <Heading>
@@ -46,7 +50,7 @@ const Content = ({ heading, span, words, link }) => {
         )}
         {heading}
       </Heading>
-      <Words>{words}</Words>
+      {children}
       {link}
     </Container>
   )

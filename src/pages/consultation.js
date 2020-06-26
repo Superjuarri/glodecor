@@ -105,17 +105,7 @@ const FormStep = ({ heading, steps, register, errors }) => {
           <InputWrapper key={i}>
             <Label>{step.label}</Label>
 
-            {step.checkboxes == null ? (
-              <>
-                <Input
-                  name={step.label}
-                  type={step.type}
-                  required={true}
-                  ref={register}
-                ></Input>
-                <ErrorMessage errors={errors} name={step.label} />
-              </>
-            ) : (
+            {step.checkboxes ? (
               <div style={{ display: "grid", gridTemplateColumns: "100%" }}>
                 {step.checkboxes.map((box, i) => (
                   <div key={i}>
@@ -141,6 +131,33 @@ const FormStep = ({ heading, steps, register, errors }) => {
                 ></Input>
                 <ErrorMessage errors={errors} name="otherDecorTypes" />
               </div>
+            ) : step.radios ? (
+              <div style={{ display: "grid", gridTemplateColumns: "100%" }}>
+                {step.radios.map((box, i) => (
+                  <div key={i}>
+                    <span style={{ color: "var(--gray)" }}>{box}</span>
+                    <Input
+                      style={{ marginLeft: "1rem" }}
+                      name={step.label}
+                      type="radio"
+                      ref={register}
+                      value={box}
+                    ></Input>
+                    <ErrorMessage errors={errors} name={step.label} />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <>
+                <Input
+                  name={step.label}
+                  type={step.type}
+                  required={true}
+                  placeholder={step.placeholder}
+                  ref={register}
+                ></Input>
+                <ErrorMessage errors={errors} name={step.label} />
+              </>
             )}
           </InputWrapper>
         ))}
@@ -196,9 +213,14 @@ const IndexPage = () => {
     [
       {
         name: "eventType",
+        radios: ["Yes", "No"],
+        label: "Outside?",
+      },
+      {
+        name: "eventType",
         type: "text",
         label: "Event Type",
-        placeholder: "Birthday Party",
+        placeholder: "Birthday Party, Wedding, Baptism",
       },
       {
         name: "eventTheme",
@@ -226,7 +248,7 @@ const IndexPage = () => {
     ],
   ]
 
-  const { register, errors, handleSubmit } = useForm()
+  const { register, errors, handleSubmit, reset } = useForm()
 
   const onSubmit = e => {
     fetch("/", {
@@ -234,7 +256,10 @@ const IndexPage = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...e }),
     })
-      .then(() => alert("Success!"))
+      .then(() => {
+        alert("Success!")
+        reset()
+      })
       .catch(error => alert(error))
   }
 
@@ -272,7 +297,7 @@ const IndexPage = () => {
                 steps={steps[2]}
               />
 
-              <Button>Submit</Button>
+              <Button type="submit">Submit</Button>
             </Form>
           </Container>
         </Wrapper>

@@ -1,8 +1,10 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link as GatsbyLink } from "gatsby"
 import Img from "gatsby-image"
+
+import { Content } from "../../Content"
 
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
@@ -24,29 +26,33 @@ const Container = styled.div`
   width: var(--width);
   max-width: var(--max-width);
 
+  align-items: center;
+
+  div:nth-child(1) {
+    padding-bottom: 5rem;
+
+    @media (min-width: ${minWidth}) {
+      padding-bottom: unset;
+    }
+  }
+
   @media (min-width: ${minWidth}) {
     display: grid;
     gap: 5rem;
     grid-template-columns: 1fr 1fr;
   }
-`
 
-const Content = styled.div`
-  padding: 0 0 7.5em 0;
-
-  @media (min-width: ${minWidth}) {
-    padding-bottom: unset;
-    align-self: center;
+  span {
+    color: var(--white);
   }
 
-  h2 {
-    margin-top: 0;
-    color: var(--light-biege);
-    font-size: 2rem;
+  h1 {
+    color: var(--yellow);
   }
 
   ul {
     padding: 1rem;
+    padding-top: 0;
 
     color: var(--light-biege);
     font-size: 16px;
@@ -58,13 +64,14 @@ const Content = styled.div`
   }
 `
 
-const Link = styled.a`
+const Link = styled(GatsbyLink)`
   color: var(--yellow);
 
   font-weight: bold;
 
   display: flex;
   align-items: center;
+  text-decoration: none;
 
   :hover {
     svg {
@@ -176,8 +183,22 @@ const Events = () => {
   return (
     <Wrapper>
       <Container>
-        <Content>
-          <h2>Events</h2>
+        <Content
+          heading="All Of Them!"
+          span="What Events Do We Cover?"
+          link={
+            <Link to="/gallery">
+              Our Gallery{" "}
+              <svg fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </Link>
+          }
+        >
           <ul>
             <li>Birthdays</li>
             <li>Baby Showers</li>
@@ -190,16 +211,6 @@ const Events = () => {
             <li>Corporations</li>
             <li>Many More!</li>
           </ul>
-          <Link>
-            Our Gallery{" "}
-            <svg fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fill-rule="evenodd"
-                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </Link>
         </Content>
 
         <SliderContainer>

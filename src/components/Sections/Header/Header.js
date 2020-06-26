@@ -1,7 +1,10 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import { motion } from "framer-motion"
 import { useStaticQuery, graphql } from "gatsby"
+
+import imgSrc from "../../../images/balloonsLarge.jpg"
 
 import Img from "gatsby-image"
 
@@ -100,7 +103,7 @@ const ImgWrapper = styled(motion.div)`
   }
 `
 
-const Button = styled.a`
+const Button = styled(Link)`
   width: 100%;
   padding: 1.75rem;
 
@@ -112,6 +115,7 @@ const Button = styled.a`
   justify-content: center;
 
   border-radius: 0.5em;
+  text-decoration: none;
 
   cursor: pointer;
 
@@ -159,8 +163,8 @@ const Header = () => {
             be satisfied with our experienced services.
           </p>
           <Buttons>
-            <Button>Free Consultation</Button>
-            <Button>Our Work</Button>
+            <Button to="/consultation">Free Consultation</Button>
+            <Button to="/gallery">Our Work</Button>
           </Buttons>
         </Content>
         <ImgWrapper

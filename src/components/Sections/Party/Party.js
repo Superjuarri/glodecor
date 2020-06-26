@@ -1,8 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link as GatsbyLink } from "gatsby"
 
 import Img from "gatsby-image"
+import { Content } from "../../Content"
 
 import Confetti from "../../Confetti"
 
@@ -30,6 +31,15 @@ const Container = styled.div`
   width: var(--width);
   max-width: var(--max-width);
 
+  div:nth-child(1) {
+    margin: 5rem 0 0 0;
+
+    @media (min-width: ${minWidth}) {
+      margin: unset;
+      align-self: center;
+    }
+  }
+
   @media (min-width: ${minWidth}) {
     display: grid;
     gap: 5rem;
@@ -45,36 +55,36 @@ const Container = styled.div`
   }
 `
 
-const Content = styled.div`
-  z-index: 2;
+// const Content = styled.div`
+//   z-index: 2;
 
-  margin: 5rem 0;
-  background-color: inherit;
+//   margin: 5rem 0;
+//   background-color: inherit;
 
-  h2 {
-    margin-top: 0;
-    margin-bottom: 0.5em;
+//   h2 {
+//     margin-top: 0;
+//     margin-bottom: 0.5em;
 
-    color: var(--pink);
-    font-size: 2rem;
+//     color: var(--pink);
+//     font-size: 2rem;
 
-    span {
-      font-size: 0.75em;
-      color: var(--black);
-    }
-  }
+//     span {
+//       font-size: 0.75em;
+//       color: var(--black);
+//     }
+//   }
 
-  p {
-    max-width: 450px;
+//   p {
+//     max-width: 450px;
 
-    color: var(--gray);
-    font-size: 16px;
-    line-height: 2rem;
-    text-align: justify;
-  }
-`
+//     color: var(--gray);
+//     font-size: 16px;
+//     line-height: 2rem;
+//     text-align: justify;
+//   }
+// `
 
-const Link = styled.a`
+const Link = styled(GatsbyLink)`
   position: relative;
   z-index: 3;
 
@@ -85,6 +95,7 @@ const Link = styled.a`
   background: var(--pink);
   color: var(--light-biege);
   font-weight: bold;
+  text-decoration: none;
 
   display: flex;
   justify-content: center;
@@ -130,18 +141,18 @@ const Party = () => {
     <Wrapper>
       <Confetti position="absolute" />
       <Container>
-        <Content>
-          <h2>
-            <span>Let's Have A Party</span>
-            <br /> Get A Free Consultation
-          </h2>
+        <Content
+          heading="Get A Free Consultation"
+          span="Let's Have A Party"
+          link={<Link to="/consultation">Free Consultation</Link>}
+        >
           <p>
-            We would love to get in contact with you in order to make your party
-            dreams come true. Please click the button below to fill out a form
-            in order to get a free consultation. This way we are able to figure
-            out what pricing and materials are best suited for your celebration.
+            Colaberate together on charming designs, build high quality
+            displays, and deliver the dream event your imagination desires. Your
+            special days are important to us aswell. That is why we put so much
+            care and attention into giving you the best displays you could ever
+            dream of.
           </p>
-          <Link>Free Consultation</Link>
         </Content>
         <ImgContainer>
           <Img fluid={data.placeholderImage.childImageSharp.fluid} />

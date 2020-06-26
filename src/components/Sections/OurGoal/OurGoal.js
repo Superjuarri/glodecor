@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Link as GatsbyLink } from "gatsby"
 import { motion } from "framer-motion"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -52,8 +53,9 @@ const ContentWrapper = styled(motion.div)`
   }
 `
 
-const Link = styled.a`
+const Link = styled(GatsbyLink)`
   color: var(--pink);
+  text-decoration: none;
 
   font-weight: bold;
 
@@ -120,7 +122,7 @@ const ImageCollage = styled.div`
   }
 `
 
-const ConfettiPopper = styled(motion.img)`
+const ConfettiPopper = styled.img`
   z-index: 3;
 
   position: absolute;
@@ -154,9 +156,27 @@ const OurGoal = () => {
           <Content
             heading="Create Amazing Balloons"
             span="What Is Our Goal?"
-            words="Colaberate together on charming designs, build high quality displays, and deliver the dream event your imagination desires. Your special days are important to us aswell. That is why we put so much care and attention into giving you the best displays you could ever dream of."
-            link={<Link to="/about">About Us</Link>}
-          />
+            link={
+              <Link to="/about">
+                About Us
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </Link>
+            }
+          >
+            <p>
+              Colaberate together on charming designs, build high quality
+              displays, and deliver the dream event your imagination desires.
+              Your special days are important to us aswell. That is why we put
+              so much care and attention into giving you the best displays you
+              could ever dream of.
+            </p>
+          </Content>
         </ContentWrapper>
 
         <ImageCollage>
@@ -164,11 +184,7 @@ const OurGoal = () => {
             <StyledImg key={image.id} fluid={image.childImageSharp.fluid} />
           ))}
 
-          <ConfettiPopper
-            src={ConfettiPopperSrc}
-            animate={{ scale: [1, 0.9] }}
-            transition={{ yoyo: Infinity, duration: 2, ease: "easeInOut" }}
-          />
+          <ConfettiPopper src={ConfettiPopperSrc} />
         </ImageCollage>
       </Container>
     </Wrapper>

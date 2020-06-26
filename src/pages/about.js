@@ -153,9 +153,14 @@ const AboutPage = () => {
               <Content
                 heading="Alma Cerda"
                 span="Who Am I?"
-                words="A certifide balloon artist, behind Glodécor’s success. I am an expert in bringing your vision into air or helium filled masterpieces while working within your budget."
                 link={<Link to="/consultation">Free Consultation</Link>}
-              />
+              >
+                <p>
+                  A certifide balloon artist, behind Glodécor’s success. I am an
+                  expert in bringing your vision into air or helium filled
+                  masterpieces while working within your budget.
+                </p>
+              </Content>
             </ContentWrapper>
           </Container>
         </Wrapper>
