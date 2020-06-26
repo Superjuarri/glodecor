@@ -18,7 +18,7 @@ const Footer = () => {
       <a href="https://www.facebook.com/glodecorcba/">
         <img src={facebookIconSrc} />
       </a>
-      <A href="tel:+19512010592">1-951-201-0592</A>
+      <A href="tel:+7517235656">(751) 723-5656</A>
       <A href="mailto:almathereza@gmail.com">almathereza@gmail.com</A>
     </Wrapper>
   )
