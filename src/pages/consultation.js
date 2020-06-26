@@ -30,7 +30,7 @@ const Container = styled.div`
 
 const Form = styled.form`
   margin: 2rem auto;
-  padding: 5rem;
+  padding: 2rem;
 
   max-width: 800px;
 
@@ -41,6 +41,10 @@ const Form = styled.form`
   flex-wrap: wrap;
 
   border-radius: calc(1rem / 2);
+
+  @media (min-width: ${minWidth}) {
+    padding: 5rem;
+  }
 `
 
 const StepWrapper = styled.div`
