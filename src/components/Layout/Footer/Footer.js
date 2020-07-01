@@ -8,7 +8,7 @@ import { Wrapper, Nav, Link, A } from "./styles"
 const Footer = () => {
   return (
     <Wrapper>
-      <img src={logoSrc} width="75px" />
+      <img src={logoSrc} width="75px" alt="Glodecor Logo" />
       <Nav>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>

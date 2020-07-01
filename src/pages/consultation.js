@@ -5,6 +5,8 @@ import { useForm, ErrorMessage } from "react-hook-form"
 
 import { GlobalStyle } from "../styles/GlobalStyle"
 
+import SEO from "../components/seo"
+
 import { Layout } from "../components/Layout"
 
 const minWidth = "900px"
@@ -102,6 +104,7 @@ const FormStep = ({ heading, steps, register, errors }) => {
   return (
     <div>
       <h4>{heading}</h4>
+
       <StepWrapper>
         {steps.map((step, i) => (
           <InputWrapper key={i}>
@@ -268,6 +271,8 @@ const IndexPage = () => {
   return (
     <>
       <GlobalStyle />
+      <SEO title="Free Consultation" />
+
       <Layout>
         <Wrapper>
           <Container>

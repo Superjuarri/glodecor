@@ -136,7 +136,7 @@ const Header = () => {
     {
       placeholderImage: file(relativePath: { eq: "balloonsLarge.jpg" }) {
         childImageSharp {
-          fluid(quality: 100) {
+          fluid(quality: 100, srcSetBreakpoints: [300, 900, 1200]) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }

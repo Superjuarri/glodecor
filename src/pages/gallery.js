@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import { GlobalStyle } from "../styles/GlobalStyle"
 
+import SEO from "../components/seo"
 import Img from "gatsby-image"
 
 import Confetti from "../components/Confetti"
@@ -185,6 +186,7 @@ const GalleryPage = () => {
   return (
     <>
       <GlobalStyle />
+      <SEO title="Gallery" />
       <Layout>
         <Wrapper>
           <Confetti />

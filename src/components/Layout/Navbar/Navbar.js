@@ -20,6 +20,7 @@ const Navbar = () => {
             src={glodecorLogoSrc}
             onClick={() => animateScroll.scrollToTop()}
             width="65"
+            alt="Glodecor Logo"
           />
         </Link>
 

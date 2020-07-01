@@ -6,6 +6,7 @@ import { useStaticQuery, graphql, Link as GatsbyLink } from "gatsby"
 import { GlobalStyle } from "../styles/GlobalStyle"
 
 import Img from "gatsby-image"
+import SEO from "../components/seo"
 
 import Confetti from "../components/Confetti"
 
@@ -133,6 +134,8 @@ const AboutPage = () => {
   return (
     <>
       <GlobalStyle />
+      <SEO title="About" />
+
       <Layout>
         <Wrapper>
           <Confetti />
