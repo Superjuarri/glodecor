@@ -140,7 +140,7 @@ const OurGoal = () => {
           id
           childImageSharp {
             fluid {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

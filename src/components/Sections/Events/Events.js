@@ -162,7 +162,7 @@ const Events = () => {
           id
           childImageSharp {
             fluid(cropFocus: ENTROPY) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
               ...GatsbyImageSharpFluidLimitPresentationSize
             }
           }
