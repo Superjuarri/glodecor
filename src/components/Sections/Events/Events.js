@@ -161,7 +161,7 @@ const Events = () => {
         nodes {
           id
           childImageSharp {
-            fluid(quality: 100, cropFocus: ENTROPY) {
+            fluid(cropFocus: ENTROPY) {
               ...GatsbyImageSharpFluid
               ...GatsbyImageSharpFluidLimitPresentationSize
             }
