@@ -10,7 +10,7 @@ import Img from "gatsby-image"
 
 const minWidth = "900px"
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   overflow: hidden;
   height: 100%;
 
@@ -69,7 +69,7 @@ const Content = styled(motion.div)`
   }
 `
 
-const Buttons = styled.div`
+const Buttons = styled(motion.div)`
   margin-top: 2rem;
 
   display: flex;
@@ -131,6 +131,31 @@ const Button = styled(Link)`
   }
 `
 
+const easing = [0.6, -0.05, 0.01, 0.99]
+
+const fadeInUp = {
+  initial: {
+    y: 60,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+  },
+  transition: {
+    duration: 0.6,
+    ease: easing,
+  },
+}
+
+const stagger = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
 const Header = () => {
   const data = useStaticQuery(graphql`
     {
@@ -145,24 +170,20 @@ const Header = () => {
   `)
 
   return (
-    <Wrapper>
+    <Wrapper exit={{ opacity: 0 }} initial="initial" animate="animate">
       <Container>
-        <Content
-          transition={{ ease: "easeOut", duration: 0.5 }}
-          initial={{ opacity: 0 }}
-          animate={{ y: ["100%", "0%"], opacity: [0, 1] }}
-        >
-          <h1>
+        <Content variants={stagger}>
+          <motion.h1 variants={fadeInUp}>
             <span>Give Life To Your Party With</span>
             <br />
             Balloon Designs
-          </h1>
-          <p>
+          </motion.h1>
+          <motion.p variants={fadeInUp}>
             We specialize in creating an atmosphere that is beautiful and
             memorable for your celebrations. We assure you that you will always
             be satisfied with our experienced services.
-          </p>
-          <Buttons>
+          </motion.p>
+          <Buttons variants={fadeInUp}>
             <Button to="/consultation">Free Consultation</Button>
             <Button to="/gallery">Our Work</Button>
           </Buttons>
